@@ -1,0 +1,74 @@
+## Build results
+bin/
+obj/
+*.dll
+*.exe
+*.app
+*.log
+
+## User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.vspscc
+*.vssscc
+
+## Visual Studio
+.vs/
+.vscode/
+.v17/
+
+## VS Code settings
+.vscode/
+.history/
+
+## Rider
+.idea/
+*.sln.iml
+
+## ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+## Backup & temp files
+*.bak
+*.tmp
+*.temp
+*.swp
+*.swn
+*.swo
+*.orig
+
+## DotCover
+*.dotCover
+
+## Copilot / CopilotIndices
+**/CopilotIndices/
+**/CodeChunks.*
+**/SemanticSymbols.*
+
+## SQLite / Embedded DB files
+*.sqlite
+*.db
+*.db-shm
+*.db-wal
+
+## Crash logs or other personal logs
+*.log
+
+## Auto-generated files
+Generated_Code/
+
+## Book-based content (e.g. examples or experimental scripts)
+Samples/
+Snippets/
+Tests/
+
+## Others (e.g., JetBrains Rider)
+*.DotSettings.user
+
+## OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
