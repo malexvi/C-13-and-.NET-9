@@ -31,3 +31,19 @@ these three are compiled to the same CIL, e can build .NET projects with anyone 
 * .NET 5+
 	* Unification of .NET ecosystem: Starting with .NET 5, Microsoft dropped "Core" from the name to signal that the modern platform unified the experiences of .NET Core and other implementations
     * Inclusion of ASP.NET Core (and ASP.NET Core MVC): In this unified environment, ASP.NET Core is already integrated with the MVC pattern (alongside other approaches like Razor Pages and APIs). This means that when developing a modern web application with .NET 5 or later, you're already using the most up-to-date and optimized version of MVC — namely, ASP.NET Core MVC — without needing to install a separate component.
+
+## Using command line to creater a project and solution
+
+We just need to be sure of the folder we'll be creating it in, so, we'll be creating a new console app:
+
+I'll browse where I already have a solution (HelloCS) where Chapter01 is located and:
+```shell 
+dotnet new console -o <NAME_OF_THE_PROJECT> --use-program-main 
+```
+
+After creating it, we'll create the solution
+```shell 
+dotnet sln add <NAME_OF_THE_SOLUTION>
+```
+
+If everything is defined correctly as well as the paths and folders, the solution will be availiable in the solution explorer (only after we sln add)
