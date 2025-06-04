@@ -8,3 +8,12 @@ Console.WriteLine("Hello, World!");
 string name = typeof(Program).Namespace ?? "<null>";
 //Since we're using top level statements, the namespace here will be displayed as null
 Console.WriteLine($"Namespace: {name}");
+
+int z;
+
+Console.WriteLine("Value is {0}",1.0);
+
+for  (z = 0; z < 10;z++)
+{
+    Console.WriteLine("Value of z ");
+}

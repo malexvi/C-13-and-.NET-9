@@ -47,3 +47,90 @@ dotnet sln add <NAME_OF_THE_SOLUTION>
 ```
 
 If everything is defined correctly as well as the paths and folders, the solution will be availiable in the solution explorer (only after we sln add)
+
+
+## Understand "Go to Definition"
+In the page 41 it is taught about "Go to definition" feature, I'm using Visual studio Code
+It was shown that, for example, defining a variable:
+```csharp
+int variable;
+```
+
+We click on 'int' and go to definition, we arive in struct Int32
+
+```csharp
+#region assembly System.Runtime, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+// C:\Program Files\dotnet\packs\Microsoft.NETCore.App.Ref\9.0.5\ref\net9.0\System.Runtime.dll
+#endregion
+
+#nullable enable
+
+using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
+using System.Numerics;
+using System.Runtime.CompilerServices;
+
+namespace System
+{
+    //
+    // Resumo:
+    //     Represents a 32-bit signed integer.
+    public readonly struct Int32 ....
+```
+
+And chosing one of its methods we're giving:
+* A summary that describes the method
+* Parameters that it accepts 
+* Return of the method as well as its type
+* And all the exceptions that could be thrown by it
+
+
+It was also taugth in page 42 how to enable **Inline hints** as well as where to find help, where to look in the documentation, repositories AND how to disable Copilot (Since I'm learning. I'll also disable) ![alt text](image.png)
+
+Answering Exercise 1.3 – Test your knowledge
+ Try to answer the following questions, remembering that although most answers can be found in this 
+chapter, you should do some online research or code writing to answer others:
+ 1. Is Visual Studio better than VS Code?
+ VS is more modular while Visual Studio is prefered for .NET development
+
+ 2. Are .NET 5 and later versions better than .NET Framework?
+ Well, it is performatic, cross platform and cloud ready. So we could say that .NET5+ is better than .NET framework, altough it is an evolution.
+
+ 3. What is .NET Standard, and why is it still important?
+ ???
+
+ 4. Why can a programmer use different languages (for example, C# and F#) to write applications 
+that run on .NET?
+C#, VB and F# will all be compiled to the same format called **Microsoft Intermediate Language**. Any language that is compatible with .NET will be converted to a code that can be executed by the **Common Language Runtime**
+
+ 5. What is a top-level program, and how do you access any command-line arguments?
+Is a simplified way to write console applications without explicitly defining a main method or a Program class, the compiler will automatically generate the necessary entry point
+
+ 6. What is the name of the entry point method of a .NET console app, and how should it be ex
+plicitly declared if you are not using the top-level program feature?
+The name is Main:
+
+```cs 
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Hello, .NET!");
+    }
+}
+```
+it is not needed to declare it explicitly, instead we write statements directly in the file, and the compiler automatically generates the entry point
+
+
+ 7. What namespace is the Program class defined in with a top-level program?
+ None, altough it is implicity placed in the global namespace.
+
+
+ 8. Where would you look for help for a C# keyword?
+ Go to Definition (F12)
+
+ 9. Where would you look first for solutions to common programming problems?
+ Documentation, of course.
+
+ 10. What should you do after getting AI to write code for you
+ We should allways check! It is good to help us learn, not to do our job
