@@ -87,6 +87,7 @@ And chosing one of its methods we're giving:
 
 It was also taugth in page 42 how to enable **Inline hints** as well as where to find help, where to look in the documentation, repositories AND how to disable Copilot (Since I'm learning. I'll also disable) ![alt text](image.png)
 
+## Some questions about .NET
 Answering Exercise 1.3 – Test your knowledge
  Try to answer the following questions, remembering that although most answers can be found in this 
 chapter, you should do some online research or code writing to answer others:
@@ -134,3 +135,51 @@ it is not needed to declare it explicitly, instead we write statements directly 
 
  10. What should you do after getting AI to write code for you
  We should allways check! It is good to help us learn, not to do our job
+
+
+## Continuing with the basics
+We have #region, with it, we can define parts of the code that can be collapsed:
+
+```cs
+#region 
+Console.WriteLine("Value is {0}",1.0);
+
+for  (z = 0; z < 10;z++)
+{
+    Console.WriteLine("Value of z ");
+}
+#endregion
+``` 
+
+## Nmespaces
+Paraphrasing the book "System.Console.WriteLine tess the compiler to look for a method named WriteLine in a type named Console in a namespace named System
+
+Thus, we need a type to be in a namespace, this way we'll be able to call them
+
+This is called "Importing the namespace", still with the book example
+When we:
+```cs
+using System;
+```
+
+All of **System** types will be availiable for us in the class that we imported it
+
+We can also use:
+```cs
+global using System;
+global using System.Linq; 
+```
+
+When using **global**, we we'll only need to import in one file for the import to be availiable in all files. But it's recommended to create a new file to hold all the global imports
+![alt text](image-1.png)
+
+Like the above image, it .GlobalUsings.g.cs file is generated automatically by the compiler.
+
+We could also delete this file or use 
+```xml 
+<ImplicitUsings>disable</ImplicitUsings>
+```
+
+But it was recomended to keep the file and "enable and modify the project file to change whats is included in the auto-generated class file in the obj folder hierarchy"
+
+I believe that in the section **Verbs and methods**, I'll just glaze the topic because I believe that I know pretty much how does it work (Unless I don't and I'll keep my notes down here)

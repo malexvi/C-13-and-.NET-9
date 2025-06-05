@@ -17,3 +17,13 @@ for  (z = 0; z < 10;z++)
 {
     Console.WriteLine("Value of z ");
 }
+
+#region Three variables that store the number 2 million.
+
+int decimalNotation= 2_000_000;
+int binaryNotation = 0B_0001_1110_1000_0100_1000_0000;
+int hexadecimalNotation = 0x001E_8480;
+
+#endregion
+
+ 
