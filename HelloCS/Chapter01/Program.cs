@@ -1,4 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using Microsoft.VisualBasic;
+
 Console.WriteLine("Hello, World!");
 
 // We can start the application with a debugger attached or not. When starting without it will consume less resources
@@ -15,7 +17,7 @@ Console.WriteLine("Value is {0}",1.0);
 
 for  (z = 0; z < 10;z++)
 {
-    Console.WriteLine("Value of z ");
+   // Console.WriteLine("Value of z ");
 }
 
 #region Three variables that store the number 2 million.
@@ -26,4 +28,15 @@ int hexadecimalNotation = 0x001E_8480;
 
 #endregion
 
- 
+double heightInMetres = 1.8;
+Console.WriteLine($"The variable {nameof(heightInMetres)} has the value {heightInMetres}");
+
+// Using char
+string value = "Word";
+
+char GetChar(string value)
+{
+    return value.ElementAt(0);
+}
+
+

@@ -183,3 +183,66 @@ We could also delete this file or use
 But it was recomended to keep the file and "enable and modify the project file to change whats is included in the auto-generated class file in the obj folder hierarchy"
 
 I believe that in the section **Verbs and methods**, I'll just glaze the topic because I believe that I know pretty much how does it work (Unless I don't and I'll keep my notes down here)
+
+
+
+---
+
+### 1. Creating the Project
+
+To create the **any** project inside an already existing solution in Visual Studio:
+
+* Open the existing `Solution`.
+* Right-click on the solution in the Solution Explorer and select **Add > New Project...**
+* Choose **Console App** (.NET Core or .NET 9).
+* Name the project **PROJECT_NAME**, choose the desired framework, and click **Create**.
+* To set it as the startup project, right-click the solution again and go to **Set Startup Projects...**, then select **Current Selection** or choose **Numbers** manually.
+
+---
+
+### 2. Working with Characters and Strings in C\#
+
+**Characters** use single quotes (`'`) and represent a single character:
+
+```csharp
+char letter = 'A';
+char digit = '1';
+char symbol = '$';
+```
+
+**Strings** use double quotes (`"`). They can store names, paths, or formatted content:
+
+```csharp
+string firstName = "Bob";
+string filePath = @"C:\televisions\sony\bravia.txt"; // Use @ for file paths
+```
+
+C# 11+ supports **raw string literals** for multi-line formats like XML, JSON:
+
+```csharp
+string xml = """
+    <person age="50">
+        <first_name>Mark</first_name>
+    </person>
+    """;
+```
+
+**String interpolation** with embedded expressions:
+
+```csharp
+var person = new { FirstName = "Aline", Age = 56 };
+string json = $$"""
+    {
+        "first_name": "{{person.FirstName}}",
+        "age": {{person.Age}},
+        "calculation":"{{{1 + 2}}}"
+    }
+    """;
+```
+
+---
+
+### 3. About the Numbers Project
+
+
+---
