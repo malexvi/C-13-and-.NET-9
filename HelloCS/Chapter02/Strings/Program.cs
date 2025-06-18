@@ -2,7 +2,12 @@
 char letter = 'A';
 char digit = '1';
 char symbol = '$';
-char userChouse = GetChar(value);
+char userChouse = GetChar("value");
+
+char GetChar(string value)
+{
+    return value.ToCharArray()[0];
+}
 
 // Strings
 // While strings uses double quotes ""

@@ -232,7 +232,7 @@ string xml = """
 ```csharp
 var person = new { FirstName = "Aline", Age = 56 };
 string json = $$"""
-    {
+    { 
         "first_name": "{{person.FirstName}}",
         "age": {{person.Age}},
         "calculation":"{{{1 + 2}}}"
@@ -246,3 +246,67 @@ string json = $$"""
 
 
 ---
+Claro, Marcos! Aqui estão duas sessões documentadas em inglês para o seu repositório, mantendo o estilo didático e claro que você já vem usando:
+
+---
+
+## Objects and Default Values in C#
+
+This section explores how objects and value types behave in C# when declared without initialization and when instantiated with `new`. It also demonstrates the shorthand syntax available since C# 9+.
+
+### Key Concepts:
+- **Value types** like `int`, `short`, `DateTime`, etc., are initialized with *default values*.
+- **Reference types** like `Person` default to `null`.
+- You can omit specifying the type in object instantiation when the type is already known in context (`new()` syntax).
+- `default(type)` reveals what the compiler considers the zero-value for a given type.
+
+### Example:
+
+```csharp
+short age;              // default = 0
+long sizeOfCountry;     // default = 0
+DateTime someDate;      // default = 01/01/0001
+Point location;         // default = (0,0)
+Person bob;             // default = null
+```
+
+Later, you can assign values using `new()` or shorthand initializers:
+
+```csharp
+age = 43;
+sizeOfCountry = 50_000;
+someDate = new(2000, 5, 10);
+bob = new("Bob", "Surname", someDate.Year);
+```
+
+When using collection initializers:
+
+```csharp
+List<Person> people = new()
+{
+    new() { Name = "Alice" },
+    new() { Name = "Bob" },
+    new() { Name = "Charlie" }
+};
+```
+
+And examining default values:
+
+```csharp
+Console.WriteLine($"default(int) = {default(int)}");             // 0
+Console.WriteLine($"default(bool) = {default(bool)}");           // False
+Console.WriteLine($"default(DateTime) = {default(DateTime)}");   // 01/01/0001
+Console.WriteLine($"default(string) = {default(string) ?? "<NULL>"}");  // <NULL>
+```
+
+---
+
+## Notes on Instantiation Syntax and Design Choices
+
+This section clarifies why and how `new()` can simplify your code and improve readability, especially when you're working with collections or temporary objects.
+
+### Best Practices:
+- Use `new()` when the compiler already knows the target type — e.g., variable assignment or object initialization within a list.
+- Still use explicit types (`new Type(...)`) when clarity is needed, especially in APIs or public method signatures.
+- Favor object initializers to cleanly assign multiple properties at once.
+ 
