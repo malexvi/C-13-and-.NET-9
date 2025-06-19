@@ -23,6 +23,16 @@ namespace Formatting
             arg0: numberOfBalls,
             arg1: pricePerBall * numberOfBalls
             );
+       
+
+        string grapeText = "Grapes";
+        int grapesCount = 1234;
+        string orangeText = "Oranges";
+        int orangesCount = 56789;
+
+        Console.WriteLine();
+
+        Console.WriteLine(format: "{0, -10} {1,6}", arg0: "Name", arg1: "Count");// Here we're defining the index and allignment for data {0:.} meaning the index and what comes next is the formatting
         }
     }
 }

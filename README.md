@@ -244,15 +244,9 @@ string json = $$"""
 
 ### 3. About the Numbers Project
 
-
----
-Claro, Marcos! Aqui estão duas sessões documentadas em inglês para o seu repositório, mantendo o estilo didático e claro que você já vem usando:
-
----
-
 ## Objects and Default Values in C#
 
-This section explores how objects and value types behave in C# when declared without initialization and when instantiated with `new`. It also demonstrates the shorthand syntax available since C# 9+.
+This section briefly explores how objects and value types behave in C# when declared without initialization and when instantiated with `new`. It also demonstrates the shorthand syntax available since C# 9+.
 
 ### Key Concepts:
 - **Value types** like `int`, `short`, `DateTime`, etc., are initialized with *default values*.
@@ -303,7 +297,7 @@ Console.WriteLine($"default(string) = {default(string) ?? "<NULL>"}");  // <NULL
 
 ## Notes on Instantiation Syntax and Design Choices
 
-This section clarifies why and how `new()` can simplify your code and improve readability, especially when you're working with collections or temporary objects.
+This section clarifies why and how `new()` can simplify our code and improve readability, especially when we're working with collections or temporary objects.
 
 ### Best Practices:
 - Use `new()` when the compiler already knows the target type — e.g., variable assignment or object initialization within a list.
