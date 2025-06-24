@@ -1,3 +1,21 @@
+- [C# 13 and .NET 9 Learning RepositoryU](#c-13-and-net-9-learning-repositoryu)
+- [Learning Goals](#learning-goals)
+- [Repository purpose](#repository-purpose)
+- [Notes](#notes)
+- [Using command line to creater a project and solution](#using-command-line-to-creater-a-project-and-solution)
+- [Understand "Go to Definition"](#understand-go-to-definition)
+- [Some questions about .NET](#some-questions-about-net)
+- [Continuing with the basics](#continuing-with-the-basics)
+- [Nmespaces](#nmespaces)
+- [1. Creating the Project](#1-creating-the-project)
+- [2. Working with Characters and Strings in C#](#2-working-with-characters-and-strings-in-c)
+- [3. About the Numbers Project](#3-about-the-numbers-project)
+- [Objects and Default Values in C#](#objects-and-default-values-in-c)
+- [Notes on Instantiation Syntax and Design Choices](#notes-on-instantiation-syntax-and-design-choices)
+- [Arguments in `Console.WriteLine` and `string.Format`](#arguments-in-consolewriteline-and-stringformat)
+- [Formatting Strings and Numbers](#formatting-strings-and-numbers)
+
+
 # C# 13 and .NET 9 Learning RepositoryU
 
 This repository was created as part of my journey to learn **C# 13** and **.NET 9**, using the book [*C# 13 and .NET 9 – Modern Cross-Platform Development Fundamentals*](https://www.amazon.com/13-NET-Cross-Platform-Development-Fundamentals/dp/183588122X) as the primary guide
@@ -152,7 +170,7 @@ for  (z = 0; z < 10;z++)
 ``` 
 
 ## Nmespaces
-Paraphrasing the book "System.Console.WriteLine tess the compiler to look for a method named WriteLine in a type named Console in a namespace named System
+Paraphrasing the book "System.Console.WriteLine tells the compiler to look for a method named WriteLine in a type named Console in a namespace named System
 
 Thus, we need a type to be in a namespace, this way we'll be able to call them
 
@@ -292,6 +310,7 @@ Console.WriteLine($"default(bool) = {default(bool)}");           // False
 Console.WriteLine($"default(DateTime) = {default(DateTime)}");   // 01/01/0001
 Console.WriteLine($"default(string) = {default(string) ?? "<NULL>"}");  // <NULL>
 ```
+Not that we need it, because when there is no value in a type/property it'll be assigned its default
 
 ---
 
@@ -303,4 +322,61 @@ This section clarifies why and how `new()` can simplify our code and improve rea
 - Use `new()` when the compiler already knows the target type — e.g., variable assignment or object initialization within a list.
 - Still use explicit types (`new Type(...)`) when clarity is needed, especially in APIs or public method signatures.
 - Favor object initializers to cleanly assign multiple properties at once.
- 
+
+---
+
+## Arguments in `Console.WriteLine` and `string.Format`
+
+In C#, both `Console.WriteLine` and `string.Format` allow **named arguments** to improve clarity:
+
+```csharp
+Console.WriteLine(
+    format: "{0} balls cost {1:C}",
+    arg0: numberOfBalls,
+    arg1: pricePerBall * numberOfBalls
+);
+```
+
+This is functionally identical to:
+
+```csharp
+string formatted = string.Format(
+    format: "{0} balls cost {1:C}",
+    arg0: numberOfBalls,
+    arg1: pricePerBall * numberOfBalls
+);
+```
+
+We can also omit the argument names and rely on positional order:
+
+```csharp
+Console.WriteLine("{0} balls cost {1:C}", numberOfBalls, pricePerBall * numberOfBalls);
+```
+
+This **named-argument syntax** is particularly helpful when parameters are similar in type, increasing readability and reducing mistakes.
+
+---
+
+## Formatting Strings and Numbers
+
+The format string uses the syntax `{index[,alignment][:formatString]}`:
+
+- **Index**: Argument position (`{0}`, `{1}`, etc.)
+- **Alignment**: Optional. Negative = left-align, positive = right-align.
+- **FormatString**: Optional. Applies formatting (currency, date, precision).
+
+### Examples:
+
+```csharp
+Console.WriteLine("{0, -10} {1,6}", "Name", "Count");
+Console.WriteLine("{0,-10} {1,6:N0}", "Oranges", 56789);     // "Oranges   56,789"
+Console.WriteLine("{0:000.0}", 10);                         // "010.0"
+Console.WriteLine("{0:###.###}", 10);                       // "10"
+Console.WriteLine("{0:0%}", 0.15);                          // "15%"
+Console.WriteLine("{0:C2}", 123456);                        // "$123,456.00"
+Console.WriteLine("{0:N2}", 123456);                        // "123,456.00"
+Console.WriteLine("{0:MM*dd*yyyy}", new DateTime(2000, 10, 10)); // "10*10*2000"
+```
+
+For more complex patterns (e.g., custom date/time and numeric strings), we can consult Microsoft’s formatting guide:  
+[Custom Format Strings](https://learn.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings)
